@@ -11,12 +11,10 @@ import { FetchfromApi } from '../utils/FetchfromApi'
 const Feed = () => {
 
 
-const [selectCategory,setSelectedCategory]=useState('New')
-const [videos, setVideos] = useState(null);
+const [selectCategory,setSelectCategory]=useState('New')
+const [videos, setVideos] = useState([]);
 
 useEffect(() => {
-    setVideos(null);
-
     FetchfromApi(`search?part=snippet&q=${selectCategory}`)
       .then((data) => setVideos(data.items))
     }, [selectCategory]);
@@ -37,8 +35,7 @@ useEffect(() => {
 
             <Sidebar 
             selectCategory={selectCategory}
-            setSelectedCategory={setSelectedCategory}
-            
+            setSelectedCategory={setSelectCategory}
             
             />
 

@@ -6,8 +6,6 @@ import { categories } from '../utils/constants'
 
 
 
-
-
 const Sidebar = ({selectCategory,setSelectedCategory}) => (
 
     <Stack
