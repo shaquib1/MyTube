@@ -2,12 +2,27 @@ import React from 'react'
 
 import { useEffect , useState } from 'react'
 import { Box, Stack, Typography } from '@mui/material'
-import Sidebar from './Sidebar'
 
+import {Sidebar ,Videos} from './'
 
+import { FetchfromApi } from '../utils/FetchfromApi'
 
 
 const Feed = () => {
+
+
+const [selectCategory,setSelectedCategory]=useState('New')
+const [videos, setVideos] = useState(null);
+
+useEffect(() => {
+    setVideos(null);
+
+    FetchfromApi(`search?part=snippet&q=${selectCategory}`)
+      .then((data) => setVideos(data.items))
+    }, [selectCategory]);
+
+
+
     return (
         <Stack sx={{
             flexDirection: {
@@ -20,14 +35,30 @@ const Feed = () => {
                 borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 3 }
             }}>
 
-            <Sidebar />
+            <Sidebar 
+            selectCategory={selectCategory}
+            setSelectedCategory={setSelectedCategory}
+            
+            
+            />
 
                 <Typography className="copyright" 
                 variant='body2' sx={{mt:1.5,
                 color:'#fff'}}
                 >
-                    Copyright © 2023 MetaTube
+                    Copyright © 2023 MyTube
                 </Typography>
+
+            </Box>
+
+            <Box p={2} sx={{overflowY:'auto',height:'90vh' , flex:2}}>
+                <Typography variant='h4' fontWeight="bold" mb={2} sx={{
+                    color:'white'
+                }}>
+                   {selectCategory} <span style={{color:'#F31503'}}>Videos</span>
+                </Typography>
+
+                <Videos Videos={videos} />
 
             </Box>
 

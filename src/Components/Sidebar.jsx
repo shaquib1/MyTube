@@ -5,11 +5,10 @@ import { categories } from '../utils/constants'
 
 
 
-const selectCategory = 'New';
 
 
 
-const Sidebar = () => (
+const Sidebar = ({selectCategory,setSelectedCategory}) => (
 
     <Stack
         direction="row"
@@ -24,6 +23,9 @@ const Sidebar = () => (
         {categories.map((category) => (
             <button
                 className='category-btn'
+
+                onClick={()=>setSelectedCategory (category.name)}
+
                 style={{
                     background: category.name === selectCategory && '#FC1503',
                     color: 'white'
