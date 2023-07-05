@@ -15,7 +15,7 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
       width: { xs: '356px', md: '320px' },
       height: '326px',
       margin: 'auto',
-      marginTop:marginTop,
+      marginTop: marginTop,
 
     }}
   >
