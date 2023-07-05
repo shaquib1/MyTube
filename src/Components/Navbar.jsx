@@ -17,13 +17,13 @@ const Navbar = () => {
             sx={{ position: 'sticky', background: '#000', top: 0, justifyContent: 'space-between' }}
         >
             <Link to="/" style={{ display: 'flex', alignItems: 'center', }}>
-                <img src={logo} alt="logo" height={45} />    <h1 style={{color:'#fff' , margin:'5px'}}>MyTube</h1>
-            </Link> 
-             
-           <SearchBar />
+                <img src={logo} alt="logo" height={45} />    <h1 style={{ color: '#fff', margin: '5px' }}>MyTube</h1>
+            </Link>
+
+            <SearchBar />
 
         </Stack>
     )
-} 
+}
 
 export default Navbar

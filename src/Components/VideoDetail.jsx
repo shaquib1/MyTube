@@ -20,7 +20,7 @@ const VideoDetail = () => {
       .then((data) => setVideos(data.items))
   }, [id]);
 
-  if(!videoDetail?.snippet) return <Loader />;
+  if (!videoDetail?.snippet) return <Loader />;
 
   const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
 
@@ -35,7 +35,7 @@ const VideoDetail = () => {
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
               <Link to={`/channel/${channelId}`}>
-                <Typography variant={{ sm: "subtitle1", md: 'h6' }}  color="#fff" >
+                <Typography variant={{ sm: "subtitle1", md: 'h6' }} color="#fff" >
                   {channelTitle}
                   <CheckCircleIcon sx={{ fontSize: "12px", color: "gray", ml: "5px" }} />
                 </Typography>
